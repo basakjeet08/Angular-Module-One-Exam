@@ -34,6 +34,22 @@ export class TaskService {
     this.taskSubject.next(this.getTaskList());
   }
 
+  // This function updates the task given
+  updateTask(id: string, title: string, description: string, status: string) {
+    this.taskList = this.taskList.map((task) => {
+      if (task.id === id) {
+        return {
+          id: id,
+          title: title,
+          description: description,
+          status: status || 'TO DO',
+        };
+      } else return task;
+    });
+
+    this.taskSubject.next(this.getTaskList());
+  }
+
   // This function provides the task matching the id
   getTaskById(id: string): Task | undefined {
     return this.taskList.find((task) => task.id === id);

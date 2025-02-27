@@ -15,9 +15,15 @@
       <p>Status : {{ task.status }}</p>
 
       <!-- This buttons takes you to the task details page -->
-      <button class="secondary-btn" (click)="onDetailsClick(task.id)">
-        Show Details
-      </button>
+      <div class="row-container">
+        <button class="secondary-btn" (click)="onDetailsClick(task.id)">
+          Show Details
+        </button>
+
+        <button class="destructive-btn" (click)="onEditClick(task.id)">
+          Edit Task
+        </button>
+      </div>
     </div>
   </div>
 </div>

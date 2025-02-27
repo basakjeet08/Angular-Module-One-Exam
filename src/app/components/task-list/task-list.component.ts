@@ -36,6 +36,14 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.router.navigate(['task-details', id], { relativeTo: this.route });
   }
 
+  // This function is invoked when the user clicks on the edit option
+  onEditClick(id: string) {
+    this.router.navigate(['/task-add'], {
+      relativeTo: this.route,
+      queryParams: { taskId: id },
+    });
+  }
+
   // Removing the task list subscription to prevent memory leaks
   ngOnDestroy(): void {
     this.taskSubscription?.unsubscribe();

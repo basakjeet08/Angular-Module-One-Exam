@@ -4,7 +4,7 @@
     type="text"
     name="title"
     placeholder="Enter the Title"
-    ngModel
+    [(ngModel)]="taskInput.title"
     required
     #title="ngModel"
   />
@@ -14,13 +14,18 @@
     type="text"
     name="description"
     placeholder="Enter the Description"
-    ngModel
+    [(ngModel)]="taskInput.description"
     required
     #description="ngModel"
   ></textarea>
 
   <!-- This is the input for the status of the task -->
-  <input type="text" name="status" placeholder="Enter the Status" ngModel />
+  <input
+    type="text"
+    name="status"
+    placeholder="Enter the Status"
+    [(ngModel)]="taskInput.status"
+  />
 
   <!-- Error Text if the required fileds are not provided -->
   <p
@@ -35,6 +40,6 @@
 
   <!-- This button submits the form -->
   <button class="secondary-btn" type="submit" [disabled]="!formContainer.valid">
-    Submit
+    {{ isEditMode ? "Edit Task" : "Add Task" }}
   </button>
 </form>
