@@ -1,5 +1,19 @@
 <!-- Base Root File for the Angular Project (Emulating Body Element) -->
 <div id="root">
+  <!-- Navigation Component -->
+  <nav>
+    <!-- Home / Task Details Route -->
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Task List</a
+    >
+
+    <!-- Add a Task Route -->
+    <a routerLink="/task-add" routerLinkActive="active">Add Task</a>
+  </nav>
+
   <!-- Main Container for the main page and the router outlet -->
   <main>
     <!-- Centering the main page view -->

@@ -12,6 +12,29 @@
   color: var(--on--background--color);
 }
 
+nav {
+  display: flex;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+  gap: 32px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--on--background--color);
+
+  padding: var(--padding--small);
+  border-radius: var(--border--radius);
+}
+
+.active {
+  background-color: var(--primary--color);
+}
+
 main {
   flex: 1;
 
