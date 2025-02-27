@@ -1,1 +1,19 @@
-<p>task-list works!</p>
+<div id="outer-container">
+  <!-- Container centering the cards -->
+  <div class="col-container center" *ngFor="let task of taskList">
+    <!-- Horizontal Line between them -->
+    <hr />
+
+    <!-- Each Task Item Component -->
+    <div class="card-container full-width">
+      <h2>{{ task.title }}</h2>
+      <p>Description : {{ task.description }}</p>
+      <p>Status : {{ task.status }}</p>
+
+      <!-- This buttons takes you to the task details page -->
+      <button class="secondary-btn" (click)="onDetailsClick(task.id)">
+        Show Details
+      </button>
+    </div>
+  </div>
+</div>

@@ -112,7 +112,7 @@ textarea.ng-invalid.ng-touched {
 /* Horizontal Line CSS */
 hr {
   width: 70%;
-  border: 1px dotted var(--cardVariant);
+  border: 1px dotted var(--card--variant--color);
 }
 
 /* Utility Container CSS */
