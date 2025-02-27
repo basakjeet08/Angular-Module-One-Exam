@@ -14,14 +14,16 @@
       <p>Description : {{ task.description }}</p>
       <p>Status : {{ task.status }}</p>
 
-      <!-- This buttons takes you to the task details page -->
+      <!-- Button Container for all the buttons  -->
       <div class="row-container">
-        <button class="secondary-btn" (click)="onDetailsClick(task.id)">
-          Show Details
+        <button (click)="onDetailsClick(task.id)">Show Details</button>
+
+        <button class="secondary-btn" (click)="onEditClick(task.id)">
+          Edit Task
         </button>
 
-        <button class="destructive-btn" (click)="onEditClick(task.id)">
-          Edit Task
+        <button class="destructive-btn" (click)="onDeleteClick(task.id)">
+          Delete Task
         </button>
       </div>
     </div>

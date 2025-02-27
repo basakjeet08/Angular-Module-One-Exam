@@ -44,6 +44,11 @@ export class TaskListComponent implements OnInit, OnDestroy {
     });
   }
 
+  // This function is invoked when the task is deleted
+  onDeleteClick(id: string) {
+    this.taskService.deleteTask(id);
+  }
+
   // Removing the task list subscription to prevent memory leaks
   ngOnDestroy(): void {
     this.taskSubscription?.unsubscribe();

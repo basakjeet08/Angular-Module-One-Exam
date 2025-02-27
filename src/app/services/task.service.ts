@@ -62,6 +62,13 @@ export class TaskService {
     this.taskSubject.next(this.getTaskList());
   }
 
+  // This function deletes the task given from the task list
+  deleteTask(id: string) {
+    this.taskList = this.taskList.filter((task) => task.id !== id);
+
+    this.taskSubject.next(this.getTaskList());
+  }
+
   // This function provides the task matching the id
   getTaskById(id: string): Task | undefined {
     return this.taskList.find((task) => task.id === id);
