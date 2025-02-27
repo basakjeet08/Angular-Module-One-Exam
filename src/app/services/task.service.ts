@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../Models/Task';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TaskService {
@@ -19,12 +19,17 @@ export class TaskService {
   }
 
   // Encapsulating the task list data to prevent data changes outside the service
-  getTaskList() {
+  getTaskList(): Task[] {
     return [...this.taskList];
   }
 
   // Returning the task subject as readonly to prevent changes to it
-  getTaskSubject() {
+  getTaskSubject(): Observable<Task[]> {
     return this.taskSubject.asObservable();
+  }
+
+  // This function provides the task matching the id
+  getTaskById(id: string): Task | undefined {
+    return this.taskList.find((task) => task.id === id);
   }
 }
