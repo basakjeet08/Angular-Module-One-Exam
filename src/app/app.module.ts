@@ -7,6 +7,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskAddComponent } from './components/task-add/task-add.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { FormsModule } from '@angular/forms';
+import { StatusHighlightDirective } from './directives/status-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     TaskListComponent,
     TaskAddComponent,
     TaskDetailsComponent,
+    StatusHighlightDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -5,7 +5,11 @@
     <hr />
 
     <!-- Each Task Item Component -->
-    <div class="card-container full-width">
+    <div
+      class="card-container full-width"
+      [status]="task.status"
+      appStatusHighlight
+    >
       <h2>{{ task.title }}</h2>
       <p>Description : {{ task.description }}</p>
       <p>Status : {{ task.status }}</p>
