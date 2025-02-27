@@ -20,12 +20,41 @@
   ></textarea>
 
   <!-- This is the input for the status of the task -->
-  <input
-    type="text"
-    name="status"
-    placeholder="Enter the Status"
-    [(ngModel)]="taskInput.status"
-  />
+  <div class="row-container center">
+    <!-- Status Radio Option -->
+    <label>
+      <!-- Option To Do -->
+      <input
+        type="radio"
+        name="status"
+        value="To Do"
+        [(ngModel)]="taskInput.status"
+      />
+      To Do
+    </label>
+
+    <!-- Option In - Progress -->
+    <label>
+      <input
+        type="radio"
+        name="status"
+        value="In - Progress"
+        [(ngModel)]="taskInput.status"
+      />
+      In - Progress
+    </label>
+
+    <!-- Option Done -->
+    <label>
+      <input
+        type="radio"
+        name="status"
+        value="Done"
+        [(ngModel)]="taskInput.status"
+      />
+      Done
+    </label>
+  </div>
 
   <!-- Error Text if the required fileds are not provided -->
   <p

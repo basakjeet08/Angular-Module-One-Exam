@@ -8,3 +8,8 @@ form {
   border-radius: var(--border--radius);
   background-color: var(--card--color);
 }
+
+.center {
+  align-items: center;
+  justify-content: center;
+}

@@ -18,7 +18,7 @@ export class StatusHighlightDirective {
     if (!this.status) return;
 
     // Giving the color status accordingly
-    if (this.status === 'TO DO') {
+    if (this.status === 'To Do') {
       this.backgroundColor = this.todoColor;
     } else if (this.status === 'In - Progress') {
       this.backgroundColor = this.inProgressColor;
