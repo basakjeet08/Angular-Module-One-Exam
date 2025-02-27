@@ -28,6 +28,12 @@ export class TaskService {
     return this.taskSubject.asObservable();
   }
 
+  // This function adds a task list to the task lists
+  addTask(title: string, description: string, status: string) {
+    this.taskList.push(new Task(title, description, status || 'TO DO'));
+    this.taskSubject.next(this.getTaskList());
+  }
+
   // This function provides the task matching the id
   getTaskById(id: string): Task | undefined {
     return this.taskList.find((task) => task.id === id);

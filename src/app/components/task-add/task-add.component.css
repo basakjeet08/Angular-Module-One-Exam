@@ -1,0 +1,10 @@
+form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+  padding: 40px;
+
+  border-radius: var(--border--radius);
+  background-color: var(--card--color);
+}

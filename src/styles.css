@@ -144,3 +144,9 @@ hr {
   background-color: var(--card--color);
   transition: all 0.3s ease-in-out;
 }
+
+/* Utility Error text for text fields if needed */
+.error-text {
+  font-size: 12px;
+  color: var(--error--color);
+}

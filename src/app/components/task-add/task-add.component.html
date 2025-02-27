@@ -1,1 +1,40 @@
-<p>task-add works!</p>
+<form (ngSubmit)="onSubmitClick()" #formContainer="ngForm">
+  <!-- This is the input for the title of the Task -->
+  <input
+    type="text"
+    name="title"
+    placeholder="Enter the Title"
+    ngModel
+    required
+    #title="ngModel"
+  />
+
+  <!-- This is the input for the description of the task -->
+  <textarea
+    type="text"
+    name="description"
+    placeholder="Enter the Description"
+    ngModel
+    required
+    #description="ngModel"
+  ></textarea>
+
+  <!-- This is the input for the status of the task -->
+  <input type="text" name="status" placeholder="Enter the Status" ngModel />
+
+  <!-- Error Text if the required fileds are not provided -->
+  <p
+    class="error-text"
+    *ngIf="
+      (!title.valid && title.touched) ||
+      (!description.valid && description.touched)
+    "
+  >
+    The Text fields need to be filled
+  </p>
+
+  <!-- This button submits the form -->
+  <button class="secondary-btn" type="submit" [disabled]="!formContainer.valid">
+    Submit
+  </button>
+</form>
