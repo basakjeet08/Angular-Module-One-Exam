@@ -7,15 +7,17 @@ export class TaskService {
   // These are the task list variable and the subject that will pass data events
   private taskList: Task[] = [];
   private taskSubject = new Subject<Task[]>();
+  private readonly TASK_KEY = 'task-list';
 
-  // Initializing the task list to some dummy data for testing
+  // Initializing the task list with the previous values from the local storage
   constructor() {
-    this.taskList = [
-      new Task('Title', 'Description', 'In - Progress'),
-      new Task('Title', 'Description', 'In - Progress'),
-      new Task('Title', 'Description', 'In - Progress'),
-      new Task('Title', 'Description', 'In - Progress'),
-    ];
+    this.taskList = this.getTaskListFromLocalStorage();
+    this.taskSubject.subscribe((_taskList) => this.setTaskListToLocalStorage());
+  }
+
+  // Unsubscribing the subject when the service is getting destroyed
+  OnDestroy() {
+    this.taskSubject?.unsubscribe();
   }
 
   // Encapsulating the task list data to prevent data changes outside the service
@@ -26,6 +28,16 @@ export class TaskService {
   // Returning the task subject as readonly to prevent changes to it
   getTaskSubject(): Observable<Task[]> {
     return this.taskSubject.asObservable();
+  }
+
+  // This function is used to parse data from the local storage
+  getTaskListFromLocalStorage() {
+    return JSON.parse(localStorage.getItem(this.TASK_KEY) || '[]');
+  }
+
+  // This function is used to set the new task list to the local storage
+  setTaskListToLocalStorage() {
+    localStorage.setItem(this.TASK_KEY, JSON.stringify(this.taskList));
   }
 
   // This function adds a task list to the task lists
